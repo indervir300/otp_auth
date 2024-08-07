@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Register account</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsencrypt/bin/jsencrypt.min.js"></script>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="form-data">
+            <h2
+                style="align-self: flex-start; color: #525089; letter-spacing: 0.2px; margin-bottom: 20px; margin-top: 0;">
+                Sign Up </h2>
+
+            <input type="text" name="fullname" placeholder="Full Name" autocomplete="off">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle icon"
+                style="top: 82px; left: 28px;" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </svg>
+
+            <input type="email" name="email" placeholder="Your Email" autocomplete="on">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-envelope-at-fill icon"
+                viewBox="0 0 16 16" style="top: 142px; left: 28px;">
+                <path
+                    d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
+                <path
+                    d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
+            </svg>
+
+            <input type="password" name="password" placeholder="Password">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-key-fill icon" viewBox="0 0 16 16"
+                style="top: 200px; rotate: 90deg; left: 28px;">
+                <path
+                    d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+            </svg>
+
+            <input type="password" name="confirmpassword" placeholder="Confirm Password">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-key icon" viewBox="0 0 16 16"
+                style="top: 260px; rotate: 90deg; left: 28px; width: 20px; height: 20px;">
+                <path
+                    d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5" />
+                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+            </svg>
+
+            <!-- <span
+            style="align-self: self-end; margin-top: 10px; margin-bottom: 15px; font-size: 85%; letter-spacing: 0.2px;">
+            <a href="#/forgot" style="text-decoration: none;"> forgot password? </a>
+        </span> -->
+
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash-fill icon"
+            viewBox="0 0 16 16" style="right: 30px; top: 200px;">
+            <path
+                d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z" />
+            <path
+                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z" />
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-eye-slash-fill icon"
+            viewBox="0 0 16 16" style="right: 30px; top: 259px;">
+            <path
+                d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z" />
+            <path
+                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z" />
+        </svg> -->
+
+            <button type="submit" class="form-btn"> Sign Up </button>
+        </form>
+    </div>
+
+    <script>
+        // Secret key for AES encryption (this is just for example; use a secure key in production)
+        const aesKey = CryptoJS.lib.WordArray.random(16).toString(); // Generate a random AES key
+
+        console.log('AES Key: ', aesKey);
+
+        // Example RSA public key (should be managed securely)
+        const rsaPublicKey = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv3thjQIrimiXTH58GxZg
+a2s+AfX/YA/JtQKmlJU47jbruZVLKxwaWHjhTeLYV1+xnoBXoT7oTKCtJPHA2XvO
+1M7hxJgVb2UYwBFnmrISo7yhHbKMiJQl0IJtNmyAZKBMTojzTTCYpsFgt5NC8CXY
+7PfdDFh0BzWrf3c+/EixTMSfnSzBBCQczdN24bJlVjb7u3zePGSDUtkZ3hRZ0fy6
+lYCs99S9q5Gw7BYjgKazBsf3HsPpLX5cYBJci5zgGHyHGs2yg1YcvGuwxRfxR8wc
+Bm1QhKPp3HkOD9FVMuoD5DtwKp0TUfzG3PCfjAAD6CWwCcv0Lk1lOZ9g0T1yAgMh
+uwIDAQAB
+-----END PUBLIC KEY-----`;
+
+        document.getElementById('form-data').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Extract form data
+            const formData = new FormData(this);
+            
+            const dataObject = {};
+            formData.forEach((value, key) => {
+                dataObject[key] = value;
+            });
+
+            // Convert form data to JSON string
+            const jsonString = JSON.stringify(dataObject);
+
+            // Encrypt the JSON string with AES
+            const encryptedData = CryptoJS.AES.encrypt(jsonString, aesKey).toString();
+
+            // Encrypt the AES key with RSA public key (using a library like JSEncrypt)
+
+
+            const encrypt = new JSEncrypt();
+            encrypt.setPublicKey(rsaPublicKey);
+            const encryptedAesKey = encrypt.encrypt(aesKey);
+
+            // Send encrypted data and encrypted AES key to the server
+            axios.post('/signup', { encryptedData, encryptedAesKey }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                console.log('Response:', response.data);
+            }).catch(error => {
+                console.error('Error: ', error);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
