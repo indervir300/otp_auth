@@ -1,19 +1,19 @@
 import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    host: '',
     port: 587,
     // secure: true,
     auth: {
-        user: 'janick.koch@ethereal.email',
-        pass: 'JqaVMS2Fdev3Xg3Nfn'
+        user: '',
+        pass: ''
     }
 });
 
 export async function mailer(html) {
     let mailOptions = {
-        from: 'janick.koch@ethereal.email', // Sender address
-        to: 'example@example.com',
+        from: '', // Sender address
+        to: '',
         subject: 'One Time Password',
         html: html
     };
